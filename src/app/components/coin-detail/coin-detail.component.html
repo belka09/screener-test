@@ -1,0 +1,23 @@
+<div class="container mx-auto px-4 py-8">
+    <div class="bg-white shadow-md rounded-lg p-4 mb-8 flex flex-wrap items-center justify-between">
+        <h3 class="text-xl font-semibold mb-2">{{coinData?.symbol}}</h3>
+        <div class="space-y-2 md:flex md:space-y-0 md:space-x-8">
+            <div><span class="font-bold">Volume: </span> <span>{{coinData?.volume}}</span></div>
+            <div><span class="font-bold">High Price: </span> <span>{{coinData?.highPrice }}</span></div>
+            <div><span class="font-bold">Low Price: </span> <span>{{coinData?.lowPrice }}</span></div>
+        </div>
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg p-4">
+        <canvas baseChart
+            [data]="lineChartData"
+            [options]="lineChartOptions"
+            [type]="lineChartType"
+            class="w-full h-64"></canvas>
+    </div>
+
+    <div class="flex justify-center mt-4">
+        <button (click)="updateChartData()"
+            class="px-4 py-2 mb-4 bg-zinc-50 text-center text-surface dark:bg-neutral-700 dark:text-white rounded-md">Update Chart</button>
+    </div>
+</div>
